@@ -2,6 +2,8 @@
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 The aim of this project is to install GIT and to gain a deeper understanding into the software dependencies needed to run and build your code.
 
+Test
+
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
 1.	Installation process
