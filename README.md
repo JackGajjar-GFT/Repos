@@ -1,38 +1,27 @@
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
-The aim of this project is to install GIT and to gain a deeper understanding into the software dependencies needed to run and build your code.
 
-Test
+The aim of this project is to GIT good with GIT! :D
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
+1.  Installation process
+ 
+ Homebrew on Mac because it is inferior to windows in every way possible and there is no point of using macs other than throwing away your money.
 
-    1. Homebrew
-    Install homebrew if you don't already have it, then:
-    $ brew install git
 
-    2. Xcode
-    Apple ships a binary package of Git with Xcode.
+2.  Software dependencies
 
-    3. Binary installer
-    Tim Harper provides an installer for Git. The latest version is 2.31.0, which was released 3 months ago, on 2021-03-16.
+Bash terminal. 
+Git. 
 
-    4. Building from Source
-    If you prefer to build from source, you can find tarballs on kernel.org. The latest version is 2.32.0.
+3.  Latest releases
 
-    5. Installing git-gui
-    If you would like to install git-gui and gitk, git's commit GUI and interactive history browser, you can do so using homebrew
-    $ brew install git-gui
-2.	Software dependencies
-Bash terminal
-Git
-3.	Latest releases
-The latest release of Git is 2.30.1 (Apple Git-130)
-Use the command git --version to check your installed version of git.
-4.	API references
+
+4.  API references
+
 # Build and Test
-TODO: Describe and show how to build your code and run the tests.
+TODO: Describe and show how to build your code and run the tests. 
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
