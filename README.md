@@ -1,5 +1,5 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Introduction
+TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
 The aim of this project is to install GIT and to gain a deeper understanding into the software dependencies needed to run and build your code.
 
 Test
@@ -11,6 +11,8 @@ TODO: Guide users through getting your code up and running on their own system. 
     1. Homebrew
     Install homebrew if you don't already have it, then:
     $ brew install git
+
+    Already have this madness.
 
     2. Xcode
     Apple ships a binary package of Git with Xcode.
@@ -35,7 +37,7 @@ Use the command git --version to check your installed version of git.
 TODO: Describe and show how to build your code and run the tests.
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+TODO: Explain how other users and developers can contribute to make your code better.
 
 If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
 - [ASP.NET Core](https://github.com/aspnet/Home)
