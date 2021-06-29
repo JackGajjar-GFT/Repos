@@ -28,10 +28,11 @@ TODO: Guide users through getting your code up and running on their own system. 
 Bash terminal
 Git
 3.	Latest releases
+The latest release of Git is 2.30.1 (Apple Git-130)
+Use the command git --version to check your installed version of git.
 4.	API references
 # Build and Test
 TODO: Describe and show how to build your code and run the tests.
-build the code then test it. :)
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
