@@ -1,7 +1,22 @@
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-Install homebrew
+Homebrew
+Install homebrew if you don't already have it, then:
+$ brew install git
+
+Xcode
+Apple ships a binary package of Git with Xcode.
+
+Binary installer
+Tim Harper provides an installer for Git. The latest version is 2.31.0, which was released 3 months ago, on 2021-03-16.
+
+Building from Source
+If you prefer to build from source, you can find tarballs on kernel.org. The latest version is 2.32.0.
+
+Installing git-gui
+If you would like to install git-gui and gitk, git's commit GUI and interactive history browser, you can do so using homebrew
+$ brew install git-gui
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
