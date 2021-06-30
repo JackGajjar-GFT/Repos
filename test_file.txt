@@ -1,16 +1,7 @@
 Test File - (go crazy below guys gg) - Omar
 
-<<<<<<< HEAD
-
-
-
-AYOOOOOOO WE MAKING CHANGES WOOP WOOP
-JJK IS OVERRATED - FACTS
-<<<<<<< HEAD
-=======
 WIDOWS > MAC - FACTS
 Not facts. Apple > Windows foreverrrr
->>>>>>> edc6c30e723c869683a0915c0c1fe77841aca69a
 =======
 Dhruv testing changes in Omar test file
 >>>>>>> ff273a6e0eeeaae39f5b999130a653b3f2c2b691
