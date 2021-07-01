@@ -1,5 +1,6 @@
 To get to the point of pull into DevOps I must
     git rebase master                               -Pull changes into my branch
+    git add .
     git commit -am "Adds Sams folder and file"      -Commits my change to my local repo
     git push                                        -Push my change to my branch in ADO
 
