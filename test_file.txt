@@ -1,8 +1,12 @@
 Test File - (go crazy below guys gg) - Omar
 
 WIDOWS > MAC - FACTS
+<<<<<<< HEAD
 Not facts. Apple > Windows foreverrrr 
 
+=======
+=======
+>>>>>>> 6efcd15f91dff27f45c119dcce3c34f2e4da4229
 Dhruv testing changes in Omar test file
 
 Guys reach out an olive BRANCH to each other, this attitude is not nice.
