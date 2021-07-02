@@ -23,6 +23,6 @@ steps:
     projects: 'pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
  
- - script: echo %MYSECRET%
+- script: echo %MYSECRET%
   env:
     MySecret: $(Foo)
