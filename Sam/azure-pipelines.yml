@@ -22,4 +22,5 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*.csproj'
+    arguments: '--collect "Code coverage"'
 
