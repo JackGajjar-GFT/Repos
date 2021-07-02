@@ -16,7 +16,6 @@ steps:
 - script: dotnet build pipelines-dotnet-core-master/pipelines-dotnet-core.csproj --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: echo "Hello"
 
 - task: DotNetCoreCLI@2
   displayName: Build
@@ -24,3 +23,7 @@ steps:
     command: build
     projects: 'pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
+ 
+- task: CmdLine@2
+  inputs:
+    script: 'echo Write your commands here.'
