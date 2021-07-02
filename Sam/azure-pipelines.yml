@@ -13,11 +13,16 @@ variables:
   buildConfiguration: 'Release'
 
 
-steps:
+
 - script: dotnet build pipelines-dotnet-core-master/pipelines-dotnet-core.csproj --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
 
+# do this before your build tasks
+steps:
+
 - task: DotNetCoreCLI@2
+  displayName: Build
   inputs:
-    command: 'build'
-    projects: pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'#'../padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'
+    command: build
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
