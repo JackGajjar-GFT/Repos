@@ -13,6 +13,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      
+      echo Hello world
+      
 - script: dotnet build --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
@@ -22,11 +29,5 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo Write your commands here
-      
-      echo Hello world
 
 #build ../padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj
