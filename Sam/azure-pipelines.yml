@@ -19,7 +19,6 @@ variables:
 
 # do this before your build tasks
 steps:
-
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
