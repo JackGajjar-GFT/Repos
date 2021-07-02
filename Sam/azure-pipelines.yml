@@ -26,9 +26,7 @@ steps:
     script: |
       # Write your commands here
       
-      echo '%CD%'
       echo 'pwd'
-      echo '%pwd%'
       
 - script: dotnet build --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
