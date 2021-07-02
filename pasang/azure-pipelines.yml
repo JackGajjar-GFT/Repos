@@ -16,7 +16,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '**/*.csproj'
+    projects: 'Pasang/**/*.csproj'
 
 - task: DotNetCoreCLI@2
   inputs:
