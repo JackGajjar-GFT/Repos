@@ -13,14 +13,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build origin/sams-pipeline-testing/padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj --configuration $(buildConfiguration) 
+- script: dotnet build master/padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
     command: build
-    projects: 'origin/sams-pipeline-testing/padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'
+    projects: 'master/padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
  
 - script: echo %MYSECRET%
