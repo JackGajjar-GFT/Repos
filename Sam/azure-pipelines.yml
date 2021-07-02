@@ -16,7 +16,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      echo %CD%
+      echo %CD% '%CD'
       
       echo Hello world
       
