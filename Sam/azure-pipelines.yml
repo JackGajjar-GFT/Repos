@@ -5,7 +5,6 @@
 
 trigger:
 - master
-- Sam/*
 
 pool:
   vmImage: 'Ubuntu 16.04' #ubuntu-latest
@@ -16,6 +15,10 @@ variables:
 steps:
 - script: dotnet --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: CmdLine@2
+  inputs:
+    script: 'echo %CD%'
 
 - task: DotNetCoreCLI@2
   displayName: Build
