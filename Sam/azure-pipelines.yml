@@ -22,4 +22,11 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      
+      echo Hello world
+
 #build ../padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj
