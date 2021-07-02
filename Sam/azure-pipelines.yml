@@ -12,13 +12,10 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-
-
-- script: dotnet build pipelines-dotnet-core-master/pipelines-dotnet-core.csproj --configuration $(buildConfiguration) 
+steps:
+- script: dotnet build --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
 
-# do this before your build tasks
-steps:
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
