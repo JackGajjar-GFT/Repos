@@ -7,21 +7,16 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Ubuntu 16.04' #ubuntu-latest
+  vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build **/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj --configuration $(buildConfiguration) 
-  displayName: 'dotnet build $(buildConfiguration)'
-
 - task: DotNetCoreCLI@2
-  displayName: Build
   inputs:
     command: 'build'
-    projects: '**/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
 
 
 #build ../padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj
