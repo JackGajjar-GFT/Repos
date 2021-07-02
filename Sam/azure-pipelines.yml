@@ -18,5 +18,3 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
 
-
-#build ../padawan/Sam/pipelines-dotnet-core-master/pipelines-dotnet-core.csproj
