@@ -16,7 +16,6 @@ steps:
 - script: dotnet build pipelines-dotnet-core-master/pipelines-dotnet-core.csproj --configuration $(buildConfiguration) 
   displayName: 'dotnet build $(buildConfiguration)'
 
-
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
@@ -24,6 +23,6 @@ steps:
     projects: 'pipelines-dotnet-core-master/pipelines-dotnet-core.csproj'
     arguments: '--configuration $(buildConfiguration)' # Update this to match your need
  
-- task: CmdLine@2
-  inputs:
-    script: 'echo Write your commands here.'
+ - script: echo %MYSECRET%
+  env:
+    MySecret: $(Foo)
