@@ -22,5 +22,12 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*.csproj'
-    arguments: '--collect "Code coverage"'
+#    arguments: '--collect "Code coverage"'
+
+#- script: dotnet test <test-project> --logger trx
+#- task: PublishTestResults@2
+#  condition: succeededOrFailed()
+#  inputs:
+#    testRunner: VSTest
+#    testResultsFiles: '**/*.trx'
 
