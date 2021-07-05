@@ -16,12 +16,4 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-<<<<<<< HEAD
-<<<<<<< HEAD:Dhruv/pipelines-dotnet-core-master/azure-pipelines.yml
-    projects: 'dhruv/**/*.csproj'
-=======
-    projects: '**/*.csproj'
->>>>>>> 15e5ba72a1b7817f3508cc15da517a81ce7826e6:Dhruv/azure-pipelines-1.yml
-=======
-    projects: 'Dhruv/**/*.csproj'
->>>>>>> 15e5ba72a1b7817f3508cc15da517a81ce7826e6
+    projects: 'Lana/**/*.csproj'
