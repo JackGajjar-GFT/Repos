@@ -16,18 +16,4 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: '**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: '**/*.csproj'
-#    arguments: '--collect "Code coverage"'
-
-#- script: dotnet test <test-project> --logger trx
-#- task: PublishTestResults@2
-#  condition: succeededOrFailed()
-#  inputs:
-#    testRunner: VSTest
-#    testResultsFiles: '**/*.trx'
-
+    projects: 'todd/**/*.csproj'
