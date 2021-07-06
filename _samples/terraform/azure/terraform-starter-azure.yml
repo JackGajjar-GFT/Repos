@@ -2,7 +2,7 @@
 # Start with a minimal Terraform pipeline that you can customize to build and deploy your infrastructure.
 
 # Change the pipeline name
-name: terraform-?-pipeline
+name: terraform-{your_name}-pipeline
 
 variables:
   - name: ServiceConnection
@@ -22,11 +22,13 @@ pool:
 
 steps:
 
-# Create a 'Install Terraform' task
+# (1) Create a 'Install Terraform' task
 # Parameters:
 # - Version = 1.0.1
 
-# Create a 'Terraform Init' task
+
+
+# (2) Create a 'Terraform Init' task
 # Parameters:
 # - Azure Subscription = padawans-azure
 # - Resource Group: gft-rg-padawans
@@ -34,11 +36,17 @@ steps:
 # - Storage Container: tfstate
 # - Key: terraform.{your_name}.tfstate
 
-# Create a 'Terraform Validate' task
 
-# Create a 'Terraform Plan' task
+
+# (3) Create a 'Terraform Validate' task
+
+
+
+# (4) Create a 'Terraform Plan' task
 # Additional Command Arguments: -out=tfplan
 
-# Create a 'Terraform Apply' task
+
+
+# (5) Create a 'Terraform Apply' task
 # Additional Command Arguments: tfplan
 
