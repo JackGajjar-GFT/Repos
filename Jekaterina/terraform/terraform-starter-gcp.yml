@@ -80,5 +80,5 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Jekaterina/terraform'
     environmentServiceNameGCP: 'padawans-gcp'
-    commandOptions: '-tfplan'
+    commandOptions: 'tfplan'
 
