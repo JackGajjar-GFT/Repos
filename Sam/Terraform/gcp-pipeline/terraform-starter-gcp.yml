@@ -15,7 +15,7 @@ trigger:
       - master
   paths:
     include: 
-      - sam/terraform
+      - sam/terraform/gcp-pipeline
 
 pool:
   vmImage: ubuntu-latest
@@ -39,7 +39,7 @@ steps:
   inputs:
     provider: 'gcp'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform/gcp-pipeline'
     backendServiceGCP: 'padawans-gcp'
     backendGCPBucketName: 'tf-state-padawans'
     backendGCPPrefix: 'sam/tfstate'
@@ -50,7 +50,7 @@ steps:
   inputs:
     provider: 'gcp'
     command: 'validate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform/gcp-pipeline'
 
 
 # (4) Create a 'Terraform Plan' task
@@ -59,7 +59,7 @@ steps:
   inputs:
     provider: 'gcp'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform/gcp-pipeline'
     commandOptions: '-out=tfplan'
     environmentServiceNameGCP: 'padawans-gcp'
 
@@ -70,6 +70,6 @@ steps:
   inputs:
     provider: 'gcp'
     command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Sam/Terraform/gcp-pipeline'
     commandOptions: 'tfplan'
     environmentServiceNameGCP: 'padawans-gcp'
