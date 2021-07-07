@@ -70,7 +70,7 @@ steps:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Lana/terraform'
     environmentServiceNameAzureRM: 'padawans-azure'
-    commandOptions: '-out-tfplan'
+    commandOptions: '-out=tfplan'
 
 
 
