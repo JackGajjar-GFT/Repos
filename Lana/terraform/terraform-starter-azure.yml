@@ -1,0 +1,86 @@
+# Starter Terraform pipeline
+# Start with a minimal Terraform pipeline that you can customize to build and deploy your infrastructure.
+
+# Change the pipeline name
+name: Lana-terraform-pipeline
+
+variables:
+  - name: ServiceConnection
+    value: padawans-azure
+
+# Customize paths:include: to only detect changes in your folder
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include: 
+      - Lana/terraform
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+# (1) Create a 'Install Terraform' task
+# Parameters:
+# - Version = 1.0.1
+- task: TerraformInstaller@0
+  displayName: 'Terraform Install'
+  inputs:
+    terraformVersion: '1.0.1'
+
+
+# (2) Create a 'Terraform Init' task
+# Parameters:
+# - Azure Subscription = padawans-azure
+# - Resource Group: gft-rg-padawans
+# - Storage Account: gftstpadawantfstate
+# - Storage Container: tfstate
+# - Key: terraform.{your_name}.tfstate
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Init'
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Lana/terraform'
+    backendServiceArm: 'padawans-azure'
+    backendAzureRmResourceGroupName: 'gft-rg-padawans'
+    backendAzureRmStorageAccountName: 'gftstpadawantfstate'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraform.lana.tfstate'
+
+
+# (3) Create a 'Terraform Validate' task
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Validate'
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Lana/terraform'
+    environmentServiceNameAzureRM: 'padawans-azure'
+
+
+# (4) Create a 'Terraform Plan' task
+# Additional Command Arguments: -out=tfplan
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Plan'
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Lana/terraform'
+    environmentServiceNameAzureRM: 'padawans-azure'
+    commandOptions: '-out=tfplan'
+
+
+
+# (5) Create a 'Terraform Apply' task
+# Additional Command Arguments: tfplan
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Apply'
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Lana/terraform'
+    environmentServiceNameAzureRM: 'padawans-azure'
+    commandOptions: 'tfplan'
