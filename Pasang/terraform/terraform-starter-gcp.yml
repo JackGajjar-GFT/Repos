@@ -49,7 +49,7 @@ steps:
 
 # (3) Create a 'Terraform Validate' task
 - task: TerraformTaskV2@2
-..displayName: "Terraform Validate"
+  displayName: "Terraform Validate"
   inputs:
     provider: 'gcp'
     command: 'validate'
