@@ -3,12 +3,12 @@
 # https://www.terraform.io/docs/language/data-sources/index.html
 
 resource "google_storage_bucket" "store-file" {
-  name   = "store-file"
+  name   = "store-file-sam-terra"
   location = "EU"
 }
 
 resource "google_storage_bucket_object" "file" {
   name   = "file01"
   source = "file.txt"
-  bucket = "store-file"
+  bucket = "store-file-sam-terra"
 }
