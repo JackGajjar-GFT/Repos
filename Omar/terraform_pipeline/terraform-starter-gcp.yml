@@ -15,7 +15,7 @@ trigger:
       - master
   paths:
     include:
-      - Omar/terraform
+      - Omar/terraform_pipeline
 
 pool:
   vmImage: ubuntu-latest
