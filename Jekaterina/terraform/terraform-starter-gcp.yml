@@ -60,7 +60,7 @@ steps:
 # Additional Command Arguments: -out=tfplan
 
 - task: TerraformTaskV2@2
-  displayName: "Terraform Validate"
+  displayName: "Terraform Plan"
   inputs:
     provider: 'gcp'
     command: 'plan'
@@ -74,7 +74,7 @@ steps:
 # Additional Command Arguments: tfplan
 
 - task: TerraformTaskV2@2
-  displayName: "Terraform Validate + Apply"
+  displayName: "Terraform Apply"
   inputs:
     provider: 'gcp'
     command: 'apply'
