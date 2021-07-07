@@ -17,6 +17,14 @@ trigger:
     include: 
       - Ty/TerraformAzure
 
+trigger:
+  branches:
+    include:
+     -Ty-azure-pipelines
+  paths:
+    include:
+      - Ty/
+
 pool:
   vmImage: ubuntu-latest
 
@@ -74,11 +82,13 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Ty/TerraformAzure'
+    environmentServiceNameAzureRM: 'padawans-azure'
     backendServiceArm: 'padawans-azure'
     backendAzureRmResourceGroupName: 'gft-rg-padawans'
     backendAzureRmStorageAccountName: 'gftstpadawantfstate'
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'terraform.ty.tfstate'
+    commandOptions: '-out=tfplan'
 
 
 # (5) Create a 'Terraform Apply' task
