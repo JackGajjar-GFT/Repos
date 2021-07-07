@@ -82,5 +82,5 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Ben/terraform'
     environmentServiceNameAzureRM: 'padawans-azure'
-    commandOptions: '-tfplan'
+    commandOptions: 'tfplan'
 
