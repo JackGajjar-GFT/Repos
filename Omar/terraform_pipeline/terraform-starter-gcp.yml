@@ -26,6 +26,7 @@ steps:
 # Parameters:
 # - Version = 1.0.1
 - task: TerraformInstaller@0
+  displayName: "Install Terraform"
   inputs:
     terraformVersion: '1.0.1'
 
@@ -36,6 +37,7 @@ steps:
 # - Bucket: tf-state-padawans
 # - Prefix of state file: {your_name}/tfstate
 - task: TerraformTaskV2@2
+  displayName: "Terraform Init"
   inputs:
     provider: 'gcp'
     command: 'init'
@@ -47,13 +49,35 @@ steps:
 
 
 # (3) Create a 'Terraform Validate' task
+- task: TerraformTaskV2@2
+  displayName: "Validate Terraform"
+  inputs:
+    provider: 'gcp'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Omar/terraform_pipeline'
 
 
 
 # (4) Create a 'Terraform Plan' task
 # Additional Command Arguments: -out=tfplan
+- task: TerraformTaskV2@2
+  displayName: "Plan Terraform"
+  inputs:
+    provider: 'gcp'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Omar/terraform_pipeline'
+    commandOptions: '-out=tfplan'
+    environmentServiceNameGCP: 'padawans-gcp'
 
 
 
 # (5) Create a 'Terraform Apply' task
 # Additional Command Arguments: tfplan
+- task: TerraformTaskV2@2
+  displayName: "Apply Terraform"
+  inputs:
+    provider: 'gcp'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Omar/terraform_pipeline'
+    commandOptions: 'tfplan'
+    environmentServiceNameGCP: 'padawans-gcp'
