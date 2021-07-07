@@ -2,7 +2,7 @@
 # Start with a minimal Terraform pipeline that you can customize to build and deploy your infrastructure.
 
 # Change the pipeline name
-name: terraform-{your_name}-pipeline
+name: terraform-emily-pipeline
 
 variables:
   - name: ServiceConnection
@@ -15,7 +15,7 @@ trigger:
       - master
   paths:
     include: 
-      - {your_name}/terraform
+      - Emily/terraform
 
 pool:
   vmImage: ubuntu-latest
@@ -25,6 +25,11 @@ steps:
 # (1) Create a 'Install Terraform' task
 # Parameters:
 # - Version = 1.0.1
+- task: TerraformInstaller@0
+  displayName: 'Terraform Install' 
+  inputs:
+    terraformVersion: '1.0.1'
+
 
 
 
@@ -35,18 +40,54 @@ steps:
 # - Storage Account: gftstpadawantfstate
 # - Storage Container: tfstate
 # - Key: terraform.{your_name}.tfstate
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Init' 
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Emily/terraform'
+    backendServiceArm: 'padawans-azure'
+    backendAzureRmResourceGroupName: 'gft-rg-padawans'
+    backendAzureRmStorageAccountName: 'gftstpadawantfstate'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraform.emily.tfstate'
+
 
 
 
 # (3) Create a 'Terraform Validate' task
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Validate'
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Emily/terraform'
+    environmentServiceNameAzureRM: 'padawans-azure'
+
 
 
 
 # (4) Create a 'Terraform Plan' task
 # Additional Command Arguments: -out=tfplan
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Plan'
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Emily/terraform'
+    environmentServiceNameAzureRM: 'padawans-azure'
+    commandOptions: '-out=tfplan'
 
 
 
 # (5) Create a 'Terraform Apply' task
 # Additional Command Arguments: tfplan
+- task: TerraformTaskV2@2
+  displayName: 'Terraform Apply'
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Emily/terraform'
+    environmentServiceNameAzureRM: 'padawans-azure'
+    commandOptions: 'tfplan'
 
