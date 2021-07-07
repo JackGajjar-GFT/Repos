@@ -59,6 +59,7 @@ steps:
 # (4) Create a 'Terraform Plan' task
 # Additional Command Arguments: -out=tfplan
 - task: TerraformTaskV2@2
+  displayName: "Terraform Plan"
   inputs:
     provider: 'gcp'
     command: 'plan'
