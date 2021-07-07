@@ -66,6 +66,7 @@ steps:
     provider: 'gcp'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Faisal/terraform'
+    environmentServiceNameGCP: 'padawans-gcp'
 
 
 
@@ -77,4 +78,5 @@ steps:
     provider: 'gcp'
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Faisal/terraform'
+    environmentServiceNameGCP: 'padawans-gcp'
 
