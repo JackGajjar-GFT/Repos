@@ -26,7 +26,7 @@ steps:
 # Parameters:
 # - Version = 1.0.1
 - task: TerraformInstaller@0
-  displayname: 'Terraform Install'
+  displayName: 'Terraform Install'
   inputs:
     terraformVersion: '1.0.1'
 
@@ -40,7 +40,7 @@ steps:
 # - Key: terraform.{your_name}.tfstate
 
 - task: TerraformTaskV2@2
-  displayname: 'Terraform init'
+  displayName: 'Terraform init'
   inputs:
     provider: 'azurerm'
     command: 'init'
