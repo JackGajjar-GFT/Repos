@@ -25,7 +25,9 @@ steps:
 # (1) Create a 'Install Terraform' task
 # Parameters:
 # - Version = 1.0.1
-
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: '1.0.1'
 
 
 # (2) Create a 'Terraform Init' task
@@ -33,6 +35,14 @@ steps:
 # - Google Cloud Platform connection: padawans-gcp
 # - Bucket: tf-state-padawans
 # - Prefix of state file: {your_name}/tfstate
+- task: TerraformTaskV2@2
+  inputs:
+    provider: 'gcp'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Omar/terraform_pipeline'
+    backendServiceGCP: 'padawans-gcp'
+    backendGCPBucketName: 'tf-state-padawans'
+    backendGCPPrefix: 'Omar/tfstate'
 
 
 
