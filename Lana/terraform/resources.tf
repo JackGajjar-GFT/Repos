@@ -26,7 +26,7 @@ resource "azurerm_storage_container" "container" {
 }
 
 resource "azurerm_storage_blob" "blob" {
-  name                   = "my-awesome-content.zip"
+  name                   = "hello.txt"
   storage_account_name   = "lana${random_integer.priority.result}"
   storage_container_name = "lanacontainer${random_integer.priority.result}"
   type                   = "Block"
