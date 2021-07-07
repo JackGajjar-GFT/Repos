@@ -22,6 +22,7 @@ pool:
 
 steps:
 - task: TerraformInstaller@0
+  displayName: "Terraform - Install"
   inputs:
     terraformVersion: '1.0.1'
 # (1) Create a 'Install Terraform' task
@@ -36,6 +37,7 @@ steps:
 # - Bucket: tf-state-padawans
 # - Prefix of state file: {your_name}/tfstate
 - task: TerraformTaskV2@2
+  displayName: "Terraform - Initialize"
   inputs:
     provider: 'gcp'
     command: 'init'
@@ -47,6 +49,7 @@ steps:
 
 # (3) Create a 'Terraform Validate' task
 - task: TerraformTaskV2@2
+  displayName: "Terraform - Validate"
   inputs:
     provider: 'gcp'
     command: 'validate'
@@ -56,6 +59,7 @@ steps:
 # (4) Create a 'Terraform Plan' task
 # Additional Command Arguments: -out=tfplan
 - task: TerraformTaskV2@2
+  displayName: "Terraform - Plan"
   inputs:
     provider: 'gcp'
     command: 'plan'
@@ -67,6 +71,7 @@ steps:
 # (5) Create a 'Terraform Apply' task
 # Additional Command Arguments: tfplan
 - task: TerraformTaskV2@2
+  displayName: "Terraform - Apply"
   inputs:
     provider: 'gcp'
     command: 'apply'
