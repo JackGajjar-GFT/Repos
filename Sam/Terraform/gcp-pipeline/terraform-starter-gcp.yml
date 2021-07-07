@@ -2,7 +2,7 @@
 # Start with a minimal Terraform pipeline that you can customize to build and deploy your infrastructure.
 
 # Change the pipeline name
-name: terraform-{your_name}-pipeline
+name: terraform-sam-pipeline
 
 variables:
   - name: ServiceConnection
@@ -15,7 +15,7 @@ trigger:
       - master
   paths:
     include: 
-      - {your_name}/terraform
+      - sam/terraform
 
 pool:
   vmImage: ubuntu-latest
