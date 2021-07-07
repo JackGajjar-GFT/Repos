@@ -13,6 +13,7 @@ trigger:
   branches:
     include:
       - master
+      - lana-terraform-2
   paths:
     include: 
       - Lana/terraform
