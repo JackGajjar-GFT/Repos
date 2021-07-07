@@ -7,10 +7,10 @@ resource "azurerm_resource_group" "example" {
   location = "West Europe"
 }
 
-resource "azurerm_storage_account" "example" {
-  name                     = "storageaccountname"
-  resource_group_name      = azurerm_resource_group.padawans.name
-  location                 = azurerm_resource_group.padawans.location
+resource "azurerm_storage_account" "tystorage" {
+  name                     = "tyrese${random_integer.suffix.result}"
+  resource_group_name      = data.azurerm_resource_group.padawans.name
+  location                 = data.azurerm_resource_group.padawans.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
