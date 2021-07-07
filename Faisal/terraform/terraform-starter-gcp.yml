@@ -1,0 +1,82 @@
+# Starter Terraform pipeline
+# Start with a minimal Terraform pipeline that you can customize to build and deploy your infrastructure.
+
+# Change the pipeline name
+name: terraform-Faisal-pipeline
+
+variables:
+  - name: ServiceConnection
+    value: padawans-gcp
+
+# Customize paths:include: to only detect changes in your folder
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include: 
+      - Faisal/terraform
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+# (1) Create a 'Install Terraform' task
+# Parameters:
+# - Version = 1.0.1
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: '1.0.1'
+
+
+
+# (2) Create a 'Terraform Init' task
+# Parameters:
+# - Google Cloud Platform connection: padawans-gcp
+# - Bucket: tf-state-padawans
+# - Prefix of state file: {your_name}/tfstate
+- task: TerraformTaskV2@2
+  displayName: "Terraform Init"
+  inputs:
+    provider: 'gcp'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Faisal/terraform'
+    backendServiceGCP: 'padawans-gcp'
+    backendGCPBucketName: 'tf-state-padawans'
+    backendGCPPrefix: 'Faisal/tfstate'
+
+
+
+# (3) Create a 'Terraform Validate' task
+- task: TerraformTaskV2@2
+  displayName: "Terraform Validate"
+  inputs:
+    provider: 'gcp'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Faisal/terraform'
+
+
+
+# (4) Create a 'Terraform Plan' task
+# Additional Command Arguments: -out=tfplan
+- task: TerraformTaskV2@2
+  displayName: "Terraform Plan"
+  inputs:
+    provider: 'gcp'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Faisal/terraform'
+    environmentServiceNameGCP: 'padawans-gcp'
+
+
+
+# (5) Create a 'Terraform Apply' task
+# Additional Command Arguments: tfplan
+- task: TerraformTaskV2@2
+  displayName: "Terraform Apply"
+  inputs:
+    provider: 'gcp'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Faisal/terraform'
+    environmentServiceNameGCP: 'padawans-gcp'
+
