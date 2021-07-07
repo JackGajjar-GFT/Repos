@@ -25,7 +25,9 @@ steps:
 # (1) Create a 'Install Terraform' task
 # Parameters:
 # - Version = 1.0.1
-
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: '1.0.1'
 
 
 # (2) Create a 'Terraform Init' task
@@ -35,8 +37,16 @@ steps:
 # - Storage Account: gftstpadawantfstate
 # - Storage Container: tfstate
 # - Key: terraform.{your_name}.tfstate
-
-
+- task: TerraformTaskV2@2
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Ben/terraform'
+    backendServiceArm: 'padawans-azure'
+    backendAzureRmResourceGroupName: 'gft-rg-padawans'
+    backendAzureRmStorageAccountName: 'gftstpadawantfstate'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraform.ben.tfstate'
 
 # (3) Create a 'Terraform Validate' task
 
