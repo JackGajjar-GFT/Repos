@@ -18,3 +18,17 @@ resource "azurerm_storage_account" "lana_storage_account" {
     environment = "staging"
   }
 }
+
+resource "azurerm_storage_container" "container" {
+  name                  = "content"
+  storage_account_name  = "lana${random_integer.priority.result}"
+  container_access_type = "private"
+}
+
+resource "azurerm_storage_blob" "blob" {
+  name                   = "my-awesome-content.zip"
+  storage_account_name   = "lana${random_integer.priority.result}"
+  storage_container_name = "lanaContainer${random_integer.priority.result}"
+  type                   = "Block"
+  source                 = "hello.txt"
+}
