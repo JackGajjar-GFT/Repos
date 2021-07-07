@@ -12,4 +12,3 @@ terraform {
 provider "google" {
   project = "terraform-training-318910"
 }
-
