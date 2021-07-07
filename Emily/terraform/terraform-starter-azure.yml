@@ -91,7 +91,3 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/Emily/terraform'
     environmentServiceNameAzureRM: 'padawans-azure'
     commandOptions: 'tfplan'
-<<<<<<< HEAD
-
-=======
->>>>>>> afb6061 (Files changes made)
