@@ -2,7 +2,7 @@
 # Start with a minimal Terraform pipeline that you can customize to build and deploy your infrastructure.
 
 # Change the pipeline name
-name: terraform-{your_name}-pipeline
+name: terraform-Pasang-pipeline
 
 variables:
   - name: ServiceConnection
@@ -15,7 +15,7 @@ trigger:
       - master
   paths:
     include: 
-      - {your_name}/terraform
+      - Pasang/terraform
 
 pool:
   vmImage: ubuntu-latest
