@@ -62,7 +62,7 @@ steps:
   inputs:
     provider: 'gcp'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Pasang/terrafrom'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Pasang/terraform'
     commandOptions: '-out=tfplan'
     environmentServiceNameGCP: 'padawans-gcp'
 
