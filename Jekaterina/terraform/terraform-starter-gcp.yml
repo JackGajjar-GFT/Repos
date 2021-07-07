@@ -66,6 +66,7 @@ steps:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Jekaterina/terraform'
     environmentServiceNameGCP: 'padawans-gcp'
+    commandOptions: '-out=tfplan'
 
 
 
@@ -79,4 +80,5 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Jekaterina/terraform'
     environmentServiceNameGCP: 'padawans-gcp'
+    commandOptions: '-tfplan'
 
