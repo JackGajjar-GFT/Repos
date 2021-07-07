@@ -13,7 +13,7 @@ trigger:
   branches:
     include:
       - master
-      - Dhruv_Terraform
+      #- Dhruv_Terraform
   paths:
     include: 
       - Dhruv/terraform
