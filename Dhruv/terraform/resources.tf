@@ -7,7 +7,7 @@ resource "random_integer" "suffix" {
     max = 99999
 }
 
-resource "azurerm_storage_account" "example" {
+resource "azurerm_storage_account" "DhruvaccountTerra" {
   name                     = "Dhruv${random_integer.suffix.result}"
   resource_group_name      = data.azurerm_resource_group.padawans.name
   location                 = data.azurerm_resource_group.padawans.location
