@@ -25,7 +25,10 @@ steps:
 # (1) Create a 'Install Terraform' task
 # Parameters:
 # - Version = 1.0.1
-
+- task: TerraformInstaller@0
+..displayName: "Install Terraform"
+  inputs:
+    terraformVersion: '1.0.1'
 
 
 # (2) Create a 'Terraform Init' task
@@ -33,18 +36,45 @@ steps:
 # - Google Cloud Platform connection: padawans-gcp
 # - Bucket: tf-state-padawans
 # - Prefix of state file: {your_name}/tfstate
-
+- task: TerraformTaskV2@2
+..displayName: "Terraform Init"
+  inputs:
+    provider: 'gcp'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Pasang/terraform'
+    backendServiceGCP: 'padawans-gcp'
+    backendGCPBucketName: 'tf-state-padawans'
+    backendGCPPrefix: 'Pasang/tfstate'
 
 
 # (3) Create a 'Terraform Validate' task
-
+- task: TerraformTaskV2@2
+..displayName: "Terraform Validate"
+  inputs:
+    provider: 'gcp'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Pasang/terraform'
 
 
 # (4) Create a 'Terraform Plan' task
 # Additional Command Arguments: -out=tfplan
-
+- task: TerraformTaskV2@2
+..displayName: "Terraform Plan"
+  inputs:
+    provider: 'gcp'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)Pasang/terraform'
+    commandOptions: '-out=tfplan'
+    environmentServiceNameGCP: 'padawans-gcp'
 
 
 # (5) Create a 'Terraform Apply' task
 # Additional Command Arguments: tfplan
-
+- task: TerraformTaskV2@2
+..displayName: "Terraform Apply"
+  inputs:
+    provider: 'gcp'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/Pasang/terraform'
+    commandOptions: 'tfplan'
+    environmentServiceNameGCP: 'padawans-gcp'
