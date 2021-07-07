@@ -26,7 +26,7 @@ steps:
 # Parameters:
 # - Version = 1.0.1
 - task: TerraformInstaller@0
-displayName: 'Mario Install'
+  displayName: 'Mario Install'
   inputs:
     terraformVersion: '1.0.1'
 
@@ -38,7 +38,7 @@ displayName: 'Mario Install'
 # - Storage Container: tfstate
 # - Key: - task: TerraformTaskV2@2
 - task: TerraformTaskV2@2
-displayName: 'Mario Init'
+  displayName: 'Mario Init'
   inputs:
     provider: 'azurerm'
     command: 'init'
