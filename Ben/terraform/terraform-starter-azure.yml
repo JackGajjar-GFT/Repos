@@ -1,0 +1,52 @@
+# Starter Terraform pipeline
+# Start with a minimal Terraform pipeline that you can customize to build and deploy your infrastructure.
+
+# Change the pipeline name
+name: terraform-ben-pipeline
+
+variables:
+  - name: ServiceConnection
+    value: padawans-azure
+
+# Customize paths:include: to only detect changes in your folder
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include: 
+      - Ben/terraform
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+# (1) Create a 'Install Terraform' task
+# Parameters:
+# - Version = 1.0.1
+
+
+
+# (2) Create a 'Terraform Init' task
+# Parameters:
+# - Azure Subscription = padawans-azure
+# - Resource Group: gft-rg-padawans
+# - Storage Account: gftstpadawantfstate
+# - Storage Container: tfstate
+# - Key: terraform.{your_name}.tfstate
+
+
+
+# (3) Create a 'Terraform Validate' task
+
+
+
+# (4) Create a 'Terraform Plan' task
+# Additional Command Arguments: -out=tfplan
+
+
+
+# (5) Create a 'Terraform Apply' task
+# Additional Command Arguments: tfplan
+
