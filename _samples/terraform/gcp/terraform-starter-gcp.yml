@@ -32,8 +32,7 @@ steps:
 # Parameters:
 # - Google Cloud Platform connection: padawans-gcp
 # - Bucket: tf-state-padawans
-# - Storage Container: tfstate
-# - Prefix of state file: {your_name}
+# - Prefix of state file: {your_name}/tfstate
 
 
 
