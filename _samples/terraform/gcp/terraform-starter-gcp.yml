@@ -14,7 +14,7 @@ trigger:
     include:
       - master
   paths:
-    include: 
+    include:
       - {your_name}/terraform
 
 pool:
@@ -47,4 +47,3 @@ steps:
 
 # (5) Create a 'Terraform Apply' task
 # Additional Command Arguments: tfplan
-
