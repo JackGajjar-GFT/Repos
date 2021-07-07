@@ -93,6 +93,7 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/Ty/TerraformAzure'
+    environmentServiceNameAzureRM: 'padawans-azure'
     backendServiceArm: 'padawans-azure'
     backendAzureRmResourceGroupName: 'gft-rg-padawans'
     backendAzureRmStorageAccountName: 'gftstpadawantfstate'
