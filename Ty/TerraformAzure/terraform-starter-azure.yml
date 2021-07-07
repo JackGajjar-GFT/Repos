@@ -13,17 +13,11 @@ trigger:
   branches:
     include:
       - master
+      - Ty-azure-pipelines
   paths:
     include: 
       - Ty/TerraformAzure
 
-trigger:
-  branches:
-    include:
-     -Ty-azure-pipelines
-  paths:
-    include:
-      - Ty/
 
 pool:
   vmImage: ubuntu-latest
